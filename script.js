@@ -33,6 +33,8 @@ const removeAndDrawGrid = numberOfSquares => {
     });
 }
 
+removeAndDrawGrid(16);
+
 
 
 
