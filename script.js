@@ -1,6 +1,7 @@
 const container = document.querySelector('#container');
 const button = document.querySelector('button');
-const divArr = [];
+const colArr = [];
+const rowArr = [];
 
 button.addEventListener('click', () => {
     chooseNumberOfSquares();
@@ -17,11 +18,17 @@ const removeAndDrawGrid = numberOfSquares => {
         container.removeChild(container.firstChild);
     }
 
-    for (let i = 1; i <= numberOfSquares ** 2; i++) {
-        divArr[i] = document.createElement('div');
-        divArr[i].setAttribute('id', `pixel-${i}`);
-        divArr[i].setAttribute('class', 'pixel');
-        container.appendChild(divArr[i]);
+    for (let i = 1; i <= numberOfSquares; i++) {
+            colArr[i] = document.createElement('div');
+            colArr[i].setAttribute('id', `col-${i}`)
+            colArr[i].setAttribute('class', 'pixel col');
+            container.appendChild(colArr[i]);
+        for (let j = 1; j <= numberOfSquares; j++) {
+            rowArr[j] = document.createElement('div');
+            rowArr[j].setAttribute('id', `row-${i}-col-${j}`)
+            rowArr[j].setAttribute('class', 'pixel row');
+            document.getElementById(`col-${i}`).appendChild(rowArr[j]);
+        }
     }
 
     const pixels = document.querySelectorAll('.pixel');
