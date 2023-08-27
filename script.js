@@ -1,4 +1,15 @@
 const container = document.querySelector('#container');
+const button = document.querySelector('button');
+
+button.addEventListener('click', () => {
+    chooseNumberOfSquares();
+})
+
+const chooseNumberOfSquares = () => {
+    const numberOfSquares = prompt('Choose a number between 1 and 100 for squares per side of the grid');
+
+    return numberOfSquares > 100 ? alert('Choose a number between 1 and 100') : alert(numberOfSquares);
+}
 
 const divArr = [];
 
