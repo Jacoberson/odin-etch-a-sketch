@@ -11,14 +11,10 @@ body {
     width: 800px;
 }
 
-.inner-div {
+.pixel {
     height: 50px;
     width: 50px;
     margin: 0;
     padding: 0;
     border: 1px solid black;
-}
-
-.inner-div:hover {
-    background-color: yellow;
 }
