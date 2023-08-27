@@ -8,7 +8,13 @@ button.addEventListener('click', () => {
 const chooseNumberOfSquares = () => {
     const numberOfSquares = prompt('Choose a number between 1 and 100 for squares per side of the grid');
 
-    return numberOfSquares > 100 ? alert('Choose a number between 1 and 100') : alert(numberOfSquares);
+    return numberOfSquares > 100 ? alert('Choose a number between 1 and 100') : removeGrid();
+}
+
+const removeGrid = () => {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
 }
 
 const divArr = [];
