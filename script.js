@@ -19,11 +19,11 @@ const removeAndDrawGrid = numberOfSquares => {
     }
 
     for (let i = 1; i <= numberOfSquares; i++) {
-            colArr[i] = document.createElement('div');
-            colArr[i].setAttribute('id', `col-${i}`)
-            colArr[i].setAttribute('class', 'pixel col');
-            container.appendChild(colArr[i]);
-        for (let j = 1; j <= numberOfSquares; j++) {
+        colArr[i] = document.createElement('div');
+        colArr[i].setAttribute('id', `col-${i}`)
+        colArr[i].setAttribute('class', 'pixel col');
+        container.appendChild(colArr[i]);
+        for (let j = 2; j <= numberOfSquares; j++) {
             rowArr[j] = document.createElement('div');
             rowArr[j].setAttribute('id', `row-${i}-col-${j}`)
             rowArr[j].setAttribute('class', 'pixel row');
@@ -35,7 +35,9 @@ const removeAndDrawGrid = numberOfSquares => {
 
     pixels.forEach(pixel => {
         pixel.addEventListener('mouseover', event => {
-            event.target.style.backgroundColor = 'yellow';
+            if (!event.target.classList.contains('col')) {
+                event.target.style.backgroundColor = 'yellow';
+            }
         })
     });
 }
