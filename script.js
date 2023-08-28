@@ -23,7 +23,7 @@ const removeAndDrawGrid = numberOfSquares => {
         colArr[i].setAttribute('id', `col-${i}`)
         colArr[i].setAttribute('class', 'pixel col');
         container.appendChild(colArr[i]);
-        for (let j = 2; j <= numberOfSquares; j++) {
+        for (let j = 1; j <= numberOfSquares; j++) {
             rowArr[j] = document.createElement('div');
             rowArr[j].setAttribute('id', `row-${i}-col-${j}`)
             rowArr[j].setAttribute('class', 'pixel row');
@@ -36,10 +36,17 @@ const removeAndDrawGrid = numberOfSquares => {
     pixels.forEach(pixel => {
         pixel.addEventListener('mouseover', event => {
             if (!event.target.classList.contains('col')) {
-                event.target.style.backgroundColor = 'yellow';
+                const red = getRandomNumber();
+                const green = getRandomNumber();
+                const blue = getRandomNumber();
+                event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
             }
         })
     });
+}
+
+const getRandomNumber = () => {
+    return Math.floor(Math.random() * 256);
 }
 
 removeAndDrawGrid(16);
